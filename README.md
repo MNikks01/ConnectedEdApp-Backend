@@ -51,12 +51,44 @@ npm install
    Create a `.env` file in the root directory with the following variables:
 
 ```env
-PORT=3000
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+
+# Database Configuration
+MONGODB_URI=mongodb://localhost:27017/your_database
+
+# JWT Configuration
+JWT_SECRET=your_jwt_secret_key
+JWT_REFRESH_EXPIRES_IN=30d
+JWT_ACCESS_EXPIRES_IN=15m
+
+# Cloudinary Configuration (for media uploads)
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
+
+# Email Configuration
+EMAIL_HOST=smtp.mailtrap.io
+EMAIL_PORT=2525
+EMAIL_USER=your_email_user
+EMAIL_PASS=your_email_password
+
+# Other Configuration
+GRAPHQL_PATH=/graphql
+FRONTEND_URL=http://localhost:3000
+
+# OAuth (if using social login)
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+FACEBOOK_APP_ID=your_facebook_app_id
+FACEBOOK_APP_SECRET=your_facebook_app_secret
+
+# New additions
+CORS_ORIGIN=http://localhost:3000
+EMAIL_SERVICE=gmail
+EMAIL_PASSWORD=your_app_specific_password
+
 ```
 
 4. Start the server
