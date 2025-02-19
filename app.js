@@ -6,6 +6,14 @@ import authRoutes from './routes/authRoutes.js';
 import socialRoutes from './routes/social.routes.js';
 import chatRoutes from './routes/chat.routes.js';
 import messageRoutes from './routes/message.routes.js';
+import eventRoutes from './routes/event.routes.js';
+import groupRoutes from './routes/group.routes.js';
+import noticeRoutes from './routes/notice.routes.js';
+import notificationRoutes from './routes/notification.routes.js';
+import pollRoutes from './routes/poll.routes.js';
+import postRoutes from './routes/post.routes.js';
+import projectAndHomeworkRoutes from './routes/projectAndHomework.routes.js';
+import syllabusRoutes from './routes/syllabus.routes.js';
 
 import { ApolloServer } from 'apollo-server-express';
 import path from 'path';
@@ -54,6 +62,14 @@ app.use('/api/auth', authRoutes);
 app.use('/api/social', socialRoutes);
 app.use('/api/chats', chatRoutes);
 app.use('/api/messages', messageRoutes);
+app.use('/api/events', eventRoutes);
+app.use('/api/groups', groupRoutes);
+app.use('/api/notices', noticeRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/polls', pollRoutes);
+app.use('/api/posts', postRoutes);
+app.use('/api/projects-and-homeworks', projectAndHomeworkRoutes);
+app.use('/api/syllabuses', syllabusRoutes);
 
 // Default route
 app.get('/', (req, res) => {
