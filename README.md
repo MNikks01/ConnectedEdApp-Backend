@@ -3,7 +3,7 @@
 ConnectEdApp is an incredibly useful and easy to use E-Schooling platform with goal to connect all educations.
 
 Inspiration:
-At the end of the day, the most overwhelming key to child’s success is positive involvement of parents. -Jane D. Hull
+`At the end of the day, the most overwhelming key to child’s success is positive involvement of parents. -Jane D. Hull`
 
 ConnectEdApp Features include:
 
