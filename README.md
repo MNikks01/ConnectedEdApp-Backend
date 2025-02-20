@@ -53,7 +53,7 @@ ConnectEdApp Features include:
 - MongoDB
 - npm or yarn
 
-## Installation
+<!-- ## Installation
 
 1. Clone the repository
    git clone https://github.com/yourusername/connectedapp.git
@@ -195,7 +195,7 @@ npm start
 - `POST /api/social/unfollow/:userId` - Unfollow a user
 - `GET /api/social/followers/:userId` - Get user's followers
 - `GET /api/social/following/:userId` - Get user's following
-- `GET /api/social/friends` - Get friends list
+- `GET /api/social/friends` - Get friends list -->
 
 ## Project Structure
 
@@ -248,7 +248,7 @@ connectedapp/
 └── package.json
 ```
 
-## Error Handling
+<!-- ## Error Handling
 
 The API uses consistent error responses:
 
@@ -281,4 +281,4 @@ Authorization: Bearer <your_jwt_token>
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details. -->
