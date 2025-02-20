@@ -27,7 +27,11 @@ A comprehensive REST API for managing school operations, built with Node.js, Exp
 - JWT for Authentication
 - Bcrypt for Password Hashing
 - Cloudinary for File Storage
-- Socket.io for Real-time Features
+- Apollo Server for GraphQL
+- Mongoose for MongoDB Object Modeling
+- Cors for Cross-Origin Resource Sharing
+- Multer for File Uploads
+- Socket.io for Real-time Communication
 
 ## Prerequisites
 
@@ -121,6 +125,64 @@ npm start
 - `PUT /api/users/profile` - Update profile
 - `PUT /api/users/change-password` - Change password
 
+### Feedback
+
+- `POST /api/feedback` - Create new feedback
+- `GET /api/feedback` - Get all feedback (Admin)
+- `GET /api/feedback/:id` - Get feedback by ID (Admin)
+- `PUT /api/feedback/:id` - Update feedback (Admin)
+- `DELETE /api/feedback/:id` - Delete feedback (Admin)
+
+### Notifications
+
+- `POST /api/notifications` - Create new notification
+- `GET /api/notifications` - Get all notifications
+- `GET /api/notifications/:id` - Get notification by ID
+- `PUT /api/notifications/:id` - Update notification
+- `DELETE /api/notifications/:id` - Delete notification
+
+### Posts
+
+- `POST /api/posts` - Create new post
+- `GET /api/posts` - Get all posts
+- `GET /api/posts/:id` - Get post by ID
+- `PUT /api/posts/:id` - Update post
+- `DELETE /api/posts/:id` - Delete post
+- `POST /api/posts/:id/like` - Like a post
+
+### Projects and Homework
+
+- `POST /api/projects-and-homeworks` - Create new project or homework
+- `GET /api/projects-and-homeworks` - Get all projects and homeworks
+- `GET /api/projects-and-homeworks/:id` - Get project or homework by ID
+- `PUT /api/projects-and-homeworks/:id` - Update project or homework
+- `DELETE /api/projects-and-homeworks/:id` - Delete project or homework
+
+### Polls
+
+- `POST /api/polls` - Create new poll
+- `GET /api/polls` - Get all polls
+- `GET /api/polls/:id` - Get poll by ID
+- `PUT /api/polls/:id` - Update poll
+- `DELETE /api/polls/:id` - Delete poll
+- `POST /api/polls/:id/vote` - Vote on a poll
+
+### Syllabuses
+
+- `POST /api/syllabuses` - Create new syllabus
+- `GET /api/syllabuses` - Get all syllabuses
+- `GET /api/syllabuses/:id` - Get syllabus by ID
+- `PUT /api/syllabuses/:id` - Update syllabus
+- `DELETE /api/syllabuses/:id` - Delete syllabus
+
+### Social
+
+- `POST /api/social/follow/:userId` - Follow a user
+- `POST /api/social/unfollow/:userId` - Unfollow a user
+- `GET /api/social/followers/:userId` - Get user's followers
+- `GET /api/social/following/:userId` - Get user's following
+- `GET /api/social/friends` - Get friends list
+
 ## Project Structure
 
 ```
@@ -129,17 +191,40 @@ connectedapp/
 │   ├── config.js
 │   └── database.js
 ├── controllers/
-│   ├── userController.js
+│   ├── notification.controller.js
+│   ├── poll.controller.js
+│   ├── post.controller.js
+│   ├── projectAndHomework.controller.js
+│   ├── syllabus.controller.js
+│   ├── social.controller.js
+│   └── user.controller.js
 │   └── ...
 ├── middleware/
-│   ├── auth.middleware.js
 │   ├── validation.middleware.js
 │   └── role.middleware.js
+│   ├── cors.middleware.js
+│   ├── error.middleware.js
+│   └── auth.middleware.js
 ├── models/
 │   ├── User.js
+│   ├── Feedback.js
+│   ├── Answer.js
+│   ├── ProjectAndHomework.js
+│   ├── Syllabus.js
+│   ├── User.js
+│   ├── Notification.js
+│   ├── Poll.js
+│   ├── Post.js
+│   └── Social.js
 │   └── ...
 ├── routes/
-│   ├── user.routes.js
+│   ├── notification.routes.js
+│   ├── poll.routes.js
+│   ├── post.routes.js
+│   ├── projectAndHomework.routes.js
+│   ├── syllabus.routes.js
+│   ├── social.routes.js
+│   └── user.routes.js
 │   └── ...
 ├── utils/
 │   └── error.js
