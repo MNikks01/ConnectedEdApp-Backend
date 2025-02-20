@@ -7,14 +7,14 @@ Inspiration:
 
 ConnectEdApp Features include:
 
-- Projects & Homeworks(Teachers can update, Parents/Students/Principal/Schools can read.)
-- Noticeboard(Schools can update, Parents/Students/Principal/Teachers can read.)
-- Find School's upcoming Events
-- Communicate with schools and teachers through messages.
-- Visit School's profile to see information like school's vision, mission, contact details, address, infrastructure, facilities, other basic information as well as achievements of school and list of teachers(click on name to visit teachers profile), etc.
-- Visit teachers profile to know information like subjects they teach at their school, their educational qualification, their awards & achievements, etc.
-- Follow schools and teachers to see their posts in your feed.
-- Customize your profile, add a profile picture, bio, update posts etc.
+- `Projects & Homeworks`(Teachers can update, Parents/Students/Principal/Schools can read.)
+- `Noticeboard`(Schools can update, Parents/Students/Principal/Teachers can read.)
+- Find `School's upcoming Events`
+- Communicate with schools and teachers through `messages`.
+- Visit `School's profile` to see information like `school's vision, mission, contact details, address, infrastructure, facilities,` other basic information as well as `achievements of school` and `list of teachers`(click on name to visit teachers profile), etc.
+- Visit `teachers profile` to know information like subjects they teach at their school, their educational qualification, their awards & achievements, etc.
+- `Follow schools and teachers` to see their posts in your feed.
+- `Customize your profile`, add a profile picture, bio, update posts etc.
 
 ## Features
 
