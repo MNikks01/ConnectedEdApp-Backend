@@ -7,13 +7,15 @@ import path from 'path';
 import { config } from './config/config.js';
 import { connectDB } from './config/database.js';
 import { configureMiddleware } from './config/middleware.js';
+import typeDefs from './graphql/schemas/index.js'; // Importing GraphQL type definitions
+import resolvers from './graphql/resolvers/index.js'; // Importing GraphQL resolvers
 
 // Import middlewares
 import { authMiddleware } from './middleware/auth.middleware';
 import errorMiddleware from './middleware/error.middleware';
-import { typeDefs, resolvers } from './graphql/index.js'; // Ensure this path is correct
 
-dotenv.config(); // Load environment variables from .env file
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 
@@ -32,21 +34,14 @@ app.use('/api/protected', authMiddleware);
 // Error handling
 app.use(errorMiddleware);
 
-// Connect to MongoDB
-mongoose.connect('your_mongodb_connection_string', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error('MongoDB connection error:', err));
-
 // Create Apollo Server
 const server = new ApolloServer({
     typeDefs,
     resolvers,
     context: ({ req }) => {
         // You can add authentication or other context here if needed
-        return { req };
+        const user = req.user; // Assuming user info is available in the request
+        return { user };
     },
 });
 
