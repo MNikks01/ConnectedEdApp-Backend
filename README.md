@@ -175,7 +175,11 @@ ConnectEdApp Features include:
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details. -->
 
+<!-- ## Project Structure
 ## Project Structure
+
+The project structure is organized as follows:
+
 
 connectedapp/
 ├── config/
@@ -219,4 +223,4 @@ connectedapp/
 ├── .env
 ├── .gitignore
 ├── app.js
-└── package.json
+└── package.json -->
