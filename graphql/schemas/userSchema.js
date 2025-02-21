@@ -4,27 +4,32 @@ import { gql } from 'apollo-server-express';
 const userSchema = gql`
   type User {
     id: ID!
-    name: String!
     email: String!
-    profilePicture: String
-    bio: String
+    role: String!
+    roles: [String]
+    group: [ID]
+    followers: [ID]
+    following: [ID]
+    userData: ID
+    schoolData: ID
+    accessToken: String
+    refreshToken: String
+    pushNotificationToken: String
+    createdAt: String
+    updatedAt: String
   }
 
   type Query {
-    getUser(id: ID!): User
-    getAllUsers: [User!]!
-  }
-
-  input UpdateUserInput {
-    name: String
-    email: String
-    bio: String
-    profilePicture: String
+    getAllUsers: [User]
+    getUserById(id: ID!): User
+    getUserProfile: User
   }
 
   type Mutation {
-    updateUser(id: ID!, input: UpdateUserInput!): User!
-    deleteUser(id: ID!): Boolean!
+    createUser(email: String!, password: String!, role: String!): User
+    updateUser(id: ID!, email: String, password: String, role: String): User
+    deleteUser(id: ID!): String
+    changePassword(currentPassword: String!, newPassword: String!): String
   }
 `;
 

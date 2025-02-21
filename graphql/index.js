@@ -1,9 +1,14 @@
-import { mergeResolvers, mergeTypeDefs } from '@graphql-tools/merge';
-import eventSchema from './schemas/eventSchema.js';
-import eventResolvers from './resolvers/eventResolvers.js';
-// Import other schemas and resolvers as needed
+import { ApolloServer } from 'apollo-server-express';
+import userSchema from './schemas/userSchema.js';
+import userResolvers from './resolvers/userResolvers.js';
 
-const typeDefs = mergeTypeDefs([eventSchema]);
-const resolvers = mergeResolvers([eventResolvers]);
+const server = new ApolloServer({
+    typeDefs: [userSchema],
+    resolvers: [userResolvers],
+    context: ({ req }) => {
+        // Add your context logic here (e.g., authentication)
+        return { user: req.user };
+    }
+});
 
-export { typeDefs, resolvers }; 
+export default server; 
