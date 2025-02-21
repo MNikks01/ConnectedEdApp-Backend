@@ -177,7 +177,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Project Structure
 
-`connectedapp/
+connectedapp/
 ├── config/
 │ ├── config.js
 │ └── database.js
@@ -186,39 +186,37 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 │ ├── poll.controller.js
 │ ├── post.controller.js
 │ └── ...
-graphql/
-├── schemas/
-│ ├── authSchema.js
-│ ├── index.js
-│ ├── userSchema.js
-│ └── ...
-├── resolvers/
-│ ├── authResolver.js
-│ ├── userResolvers.js
-│ ├── index.js
-│ ├── schoolResolvers.js
-│ └── ...
-| ├── index.js
-| ├── context.js
-├── middleware/
-│ ├── cors.middleware.js
-│ ├── error.middleware.js
-│ └── auth.middleware.js
-│ └── ...
-├── models/
-│ ├── User.js
-│ ├── Feedback.js
-│ ├── Answer.js
-│ ├── ProjectAndHomework.js
-│ └── ...
-├── routes/
-│ ├── notification.routes.js
-│ ├── poll.routes.js
-│ ├── post.routes.js
-│ └── ...
-├── utils/
-│ └── error.js
+├── graphql/
+│ ├── schemas/
+│ │ ├── authSchema.js
+│ │ ├── index.js
+│ │ ├── userSchema.js
+│ │ └── ...
+│ ├── resolvers/
+│ │ ├── authResolver.js
+│ │ ├── userResolvers.js
+│ │ ├── index.js
+│ │ ├── schoolResolvers.js
+│ │ └── ...
+│ ├── middleware/
+│ │ ├── cors.middleware.js
+│ │ ├── error.middleware.js
+│ │ └── auth.middleware.js
+│ │ └── ...
+│ ├── models/
+│ │ ├── User.js
+│ │ ├── Feedback.js
+│ │ ├── Answer.js
+│ │ ├── ProjectAndHomework.js
+│ │ └── ...
+│ ├── routes/
+│ │ ├── notification.routes.js
+│ │ ├── poll.routes.js
+│ │ ├── post.routes.js
+│ │ └── ...
+│ ├── utils/
+│ │ └── error.js
 ├── .env
 ├── .gitignore
 ├── app.js
-└── package.json`
+└── package.json
