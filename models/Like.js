@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const likeSchema = new Schema({
     likedPost: {
@@ -24,4 +23,4 @@ const likeSchema = new Schema({
 likeSchema.index({ likedPost: 1, likedBy: 1 });
 likeSchema.index({ likedComment: 1, likedBy: 1 });
 
-module.exports = mongoose.model('Like', likeSchema); 
+export const Like = model('Like', likeSchema); 

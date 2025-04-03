@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const noticeSchema = new Schema({
     subject: {
@@ -26,4 +25,4 @@ const noticeSchema = new Schema({
 // Compound index for notice queries
 noticeSchema.index({ owner: 1, createdAt: -1 });
 
-module.exports = mongoose.model('Notice', noticeSchema); 
+export const Notice = model('Notice', noticeSchema); 

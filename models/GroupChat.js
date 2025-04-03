@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const groupChatSchema = new Schema({
     messages: [{
@@ -9,4 +8,4 @@ const groupChatSchema = new Schema({
     background: String
 }, { timestamps: true });
 
-module.exports = mongoose.model('GroupChat', groupChatSchema); 
+export const GroupChat = model('GroupChat', groupChatSchema); 

@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const teacherDataSchema = new Schema({
     school: {
@@ -33,4 +32,4 @@ const teacherDataSchema = new Schema({
 // Compound index for school and isClassteacher
 teacherDataSchema.index({ school: 1, isClassteacher: 1 });
 
-module.exports = mongoose.model('TeacherData', teacherDataSchema); 
+export const TeacherData = model('TeacherData', teacherDataSchema); 

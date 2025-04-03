@@ -19,7 +19,7 @@ import leaveApplicationSchema from './leaveApplicationSchema.js';
 import likeSchema from './likeSchema.js';
 import projectAndHomeworkSchema from './projectAndHomeworkSchema.js';
 import socialSchema from './socialSchema.js';
-import syllabusSchema from './syllabusSchema.js';
+// import syllabusSchema from './syllabusSchema.js'
 
 const baseSchema = gql`
   type Query

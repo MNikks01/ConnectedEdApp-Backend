@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const followSchema = new Schema({
     followerUser: {
@@ -19,4 +18,4 @@ const followSchema = new Schema({
 // Compound index for follower-following relationship
 followSchema.index({ followerUser: 1, followingUser: 1 }, { unique: true });
 
-module.exports = mongoose.model('Follow', followSchema); 
+export const Follow = model('Follow', followSchema); 

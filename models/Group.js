@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const groupSchema = new Schema({
     name: {
@@ -36,4 +35,4 @@ const groupSchema = new Schema({
 groupSchema.index({ name: 1, createdBy: 1 });
 groupSchema.index({ createdAt: -1 });
 
-module.exports = mongoose.model('Group', groupSchema); 
+export const Group = model('Group', groupSchema); 

@@ -1,30 +1,29 @@
 const errorMiddleware = (err, req, res, next) => {
-    err.statusCode = err.statusCode || 500;
-    err.message = err.message || 'Internal Server Error';
+    let statusCode = err.statusCode || 500;
+    let message = err.message || 'Internal Server Error';
 
-    // MongoDB duplicate key error
+    // Handle MongoDB duplicate key error
     if (err.code === 11000) {
-        err.statusCode = 400;
-        err.message = `Duplicate ${Object.keys(err.keyValue)} entered`;
+        statusCode = 400;
+        message = `Duplicate field: ${Object.keys(err.keyValue).join(', ')}`;
     }
 
-    // Wrong JWT error
-    if (err.name === 'JsonWebTokenError') {
-        err.statusCode = 401;
-        err.message = 'Invalid token';
+    // Handle JWT-related errors
+    const jwtErrors = {
+        JsonWebTokenError: 'Invalid token',
+        TokenExpiredError: 'Token has expired'
+    };
+
+    if (jwtErrors[err.name]) {
+        statusCode = 401;
+        message = jwtErrors[err.name];
     }
 
-    // JWT expired error
-    if (err.name === 'TokenExpiredError') {
-        err.statusCode = 401;
-        err.message = 'Token has expired';
-    }
-
-    res.status(err.statusCode).json({
+    res.status(statusCode).json({
         success: false,
-        message: err.message,
+        message,
         stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
     });
 };
 
-module.exports = errorMiddleware; 
+export default errorMiddleware;

@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const eventSchema = new Schema({
     date: {
@@ -25,13 +24,13 @@ const eventSchema = new Schema({
         index: true,
         validate: {
             validator: async function (value) {
-                const user = await mongoose.model('User').findById(value);
+                const user = await model('User').findById(value);
                 return user && user.role === 'SCHOOL';
             },
             message: 'Event owner must be a school'
         }
     },
-    crowedAllowed: String,
+    crowdAllowed: String,
     chiefGuest: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -42,4 +41,4 @@ const eventSchema = new Schema({
 eventSchema.index({ date: 1, onwer: 1 });
 eventSchema.index({ type: 1, date: 1 });
 
-module.exports = mongoose.model('Event', eventSchema); 
+export const Event = model('Event', eventSchema); 

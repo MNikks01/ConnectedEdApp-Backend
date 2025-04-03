@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const messageSchema = new Schema({
     sender: {
@@ -22,4 +21,4 @@ const messageSchema = new Schema({
 messageSchema.index({ sender: 1, reciever: 1 });
 messageSchema.index({ createdAt: -1 });
 
-module.exports = mongoose.model('Message', messageSchema); 
+export const Message = model('Message', messageSchema); 

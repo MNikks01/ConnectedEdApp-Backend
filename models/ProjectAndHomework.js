@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const projectAndHomeworkSchema = new Schema({
     questionImage: String,
@@ -55,4 +54,4 @@ projectAndHomeworkSchema.index({ school: 1, clsMedSec: 1 });
 projectAndHomeworkSchema.index({ teacher: 1, subject: 1 });
 projectAndHomeworkSchema.index({ type: 1, submitBefore: 1 });
 
-module.exports = mongoose.model('ProjectAndHomework', projectAndHomeworkSchema); 
+export const ProjectAndHomework = model('ProjectAndHomework', projectAndHomeworkSchema); 

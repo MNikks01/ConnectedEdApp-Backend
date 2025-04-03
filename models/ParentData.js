@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const parentDataSchema = new Schema({
     child: [{
@@ -9,4 +8,4 @@ const parentDataSchema = new Schema({
     }]
 }, { timestamps: true });
 
-module.exports = mongoose.model('ParentData', parentDataSchema); 
+export const ParentData = model('ParentData', parentDataSchema); 

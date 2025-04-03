@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const syllabusCoveredSchema = new Schema({
     school: {
@@ -35,4 +34,4 @@ const syllabusCoveredSchema = new Schema({
 syllabusCoveredSchema.index({ school: 1, clsMedSec: 1 });
 syllabusCoveredSchema.index({ teacher: 1, subject: 1 });
 
-module.exports = mongoose.model('SyllabusCovered', syllabusCoveredSchema); 
+export const SyllabusCovered = model('SyllabusCovered', syllabusCoveredSchema); 

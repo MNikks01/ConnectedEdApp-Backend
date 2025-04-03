@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const groupRequestSchema = new Schema({
     user: {
@@ -26,4 +25,4 @@ const groupRequestSchema = new Schema({
 groupRequestSchema.index({ group: 1, status: 1 });
 groupRequestSchema.index({ user: 1, status: 1 });
 
-module.exports = mongoose.model('GroupRequest', groupRequestSchema); 
+export const GroupRequest = model('GroupRequest', groupRequestSchema); 

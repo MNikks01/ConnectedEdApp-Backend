@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const schoolDataSchema = new Schema({
     affiliation: String,
@@ -40,4 +39,4 @@ const schoolDataSchema = new Schema({
 // Compound index for location-based queries
 schoolDataSchema.index({ state: 1, district: 1, city: 1 });
 
-module.exports = mongoose.model('SchoolData', schoolDataSchema); 
+export const SchoolData = model('SchoolData', schoolDataSchema); 

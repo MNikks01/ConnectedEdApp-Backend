@@ -1,13 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import rateLimit from 'express-rate-limit';
 import { config } from './config.js';
+import { generalLimiter } from '../middleware/rateLimiter.middleware.js';
 
 export const configureMiddleware = (app) => {
     // Rate limiting
-    const limiter = rateLimit(config.rateLimit);
-    app.use(limiter);
+    app.use(generalLimiter); // Apply rate limiter to all requests
 
     // Body parsing
     app.use(express.json());

@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const leaveApplicationSchema = new Schema({
     school: {
@@ -49,4 +48,4 @@ const leaveApplicationSchema = new Schema({
 leaveApplicationSchema.index({ school: 1, status: 1 });
 leaveApplicationSchema.index({ owner: 1, status: 1 });
 
-module.exports = mongoose.model('LeaveApplication', leaveApplicationSchema); 
+export const LeaveApplication = model('LeaveApplication', leaveApplicationSchema); 

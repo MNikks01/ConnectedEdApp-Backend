@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const commentSchema = new Schema({
     commentText: String,
@@ -26,4 +25,4 @@ const commentSchema = new Schema({
 commentSchema.index({ commentPost: 1, createdAt: -1 });
 commentSchema.index({ commentComment: 1, createdAt: -1 });
 
-module.exports = mongoose.model('Comment', commentSchema); 
+export const Comment = model('Comment', commentSchema); 

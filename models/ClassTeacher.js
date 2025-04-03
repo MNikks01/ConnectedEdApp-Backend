@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const classTeacherSchema = new Schema({
     verifiedBySchool: {
@@ -13,4 +12,4 @@ const classTeacherSchema = new Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('ClassTeacher', classTeacherSchema); 
+export const ClassTeacher = model('ClassTeacher', classTeacherSchema); 

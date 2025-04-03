@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const userSchema = new Schema({
     email: {
@@ -8,12 +7,11 @@ const userSchema = new Schema({
         unique: true,
         index: true
     },
-    password: {
+    hashedPassword: {
         type: String,
         required: true
     },
-    hashedPassword: String,
-    role: {
+    currentRole: {
         type: String,
         enum: ['school', 'user', 'parent', 'principal', 'student', 'teacher'],
         required: true,
@@ -65,6 +63,6 @@ const userSchema = new Schema({
 }, { timestamps: true });
 
 // Indexes
-userSchema.index({ email: 1, role: 1 });
+userSchema.index({ role: 1 });
 
-module.exports = mongoose.model('User', userSchema); 
+export const User = model('User', userSchema); 

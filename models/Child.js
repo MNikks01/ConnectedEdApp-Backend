@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const childSchema = new Schema({
     hasAccount: {
@@ -50,4 +49,4 @@ const childSchema = new Schema({
 childSchema.index({ school: 1, medClsSec: 1 });
 childSchema.index({ name: 1, school: 1 });
 
-module.exports = mongoose.model('Child', childSchema); 
+export const Child = model('Child', childSchema); 

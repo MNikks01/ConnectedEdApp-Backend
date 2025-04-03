@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const principalDataSchema = new Schema({
     school: {
@@ -14,4 +13,4 @@ const principalDataSchema = new Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('PrincipalData', principalDataSchema); 
+export const PrincipalData = model('PrincipalData', principalDataSchema); 

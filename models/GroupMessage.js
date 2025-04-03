@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const groupMessageSchema = new Schema({
     group: {
@@ -28,4 +27,4 @@ const groupMessageSchema = new Schema({
 groupMessageSchema.index({ group: 1, createdAt: -1 });
 groupMessageSchema.index({ sender: 1, createdAt: -1 });
 
-module.exports = mongoose.model('GroupMessage', groupMessageSchema); 
+export const GroupMessage = model('GroupMessage', groupMessageSchema); 

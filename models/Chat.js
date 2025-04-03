@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const chatSchema = new Schema({
     user: {
@@ -14,4 +13,4 @@ const chatSchema = new Schema({
     }]
 }, { timestamps: true });
 
-module.exports = mongoose.model('Chat', chatSchema); 
+export const Chat = model('Chat', chatSchema); 

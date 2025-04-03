@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const userDataSchema = new Schema({
     displayPicture: String,
@@ -19,4 +18,4 @@ const userDataSchema = new Schema({
 // Compound index for name and mobileNumber
 userDataSchema.index({ name: 1, mobileNumber: 1 });
 
-module.exports = mongoose.model('UserData', userDataSchema); 
+export const UserData = model('UserData', userDataSchema); 

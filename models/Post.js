@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const postSchema = new Schema({
     postOwner: {
@@ -27,4 +26,4 @@ const postSchema = new Schema({
 postSchema.index({ createdAt: -1 });
 postSchema.index({ postOwner: 1, createdAt: -1 });
 
-module.exports = mongoose.model('Post', postSchema); 
+export const Post = model('Post', postSchema); 

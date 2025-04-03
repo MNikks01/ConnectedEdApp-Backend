@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const answerSchema = new Schema({
     owner: {
@@ -11,4 +10,4 @@ const answerSchema = new Schema({
     answers: [String]
 }, { timestamps: true });
 
-module.exports = mongoose.model('Answer', answerSchema); 
+export const Answer = model('Answer', answerSchema); 

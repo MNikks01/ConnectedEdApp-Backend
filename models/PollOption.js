@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const pollOptionSchema = new Schema({
     optionText: {
@@ -13,4 +12,4 @@ const pollOptionSchema = new Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('PollOption', pollOptionSchema); 
+export const PollOption = model('PollOption', pollOptionSchema); 

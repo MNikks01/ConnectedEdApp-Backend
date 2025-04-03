@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const feedbackSchema = new Schema({
     owner: {
@@ -42,4 +41,4 @@ const feedbackSchema = new Schema({
 feedbackSchema.index({ school: 1, type: 1 });
 feedbackSchema.index({ owner: 1, status: 1 });
 
-module.exports = mongoose.model('Feedback', feedbackSchema); 
+export const Feedback = model('Feedback', feedbackSchema); 

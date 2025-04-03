@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const timetableSchema = new Schema({
     timetable: {
@@ -22,4 +21,4 @@ const timetableSchema = new Schema({
 // Compound index for timetable queries
 timetableSchema.index({ school: 1, medClsSec: 1 });
 
-module.exports = mongoose.model('Timetable', timetableSchema); 
+export const Timetable = model('Timetable', timetableSchema); 

@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const friendRequestSchema = new Schema({
     sender: {
@@ -27,4 +26,4 @@ friendRequestSchema.index({ sender: 1, reciever: 1 });
 friendRequestSchema.index({ status: 1, sender: 1 });
 friendRequestSchema.index({ status: 1, reciever: 1 });
 
-module.exports = mongoose.model('FriendRequest', friendRequestSchema); 
+export const FriendRequest = model('FriendRequest', friendRequestSchema); 

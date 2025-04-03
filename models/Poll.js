@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
 const pollSchema = new Schema({
     question: {
@@ -17,7 +16,7 @@ const pollSchema = new Schema({
         index: true,
         validate: {
             validator: async function (value) {
-                const user = await mongoose.model('User').findById(value);
+                const user = await model('User').findById(value);
                 return user && user.role === 'school';
             },
             message: 'Poll can only be created by schools'
@@ -44,4 +43,4 @@ const pollSchema = new Schema({
 pollSchema.index({ createdBy: 1, visibility: 1 });
 pollSchema.index({ expires: 1 });
 
-module.exports = mongoose.model('Poll', pollSchema); 
+export const Poll = model('Poll', pollSchema); 

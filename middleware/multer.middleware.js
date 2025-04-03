@@ -1,34 +1,29 @@
-const multer = require('multer');
-const path = require('path');
+import multer from 'multer';
+import path from 'path';
 
+// Allowed file types
+const ALLOWED_FILE_TYPES = /jpeg|jpg|png|gif/;
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+
+// Storage configuration
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/');
-    },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
-    }
+    destination: (req, file, cb) => cb(null, 'uploads/'),
+    filename: (req, file, cb) => cb(null, `${Date.now()}${path.extname(file.originalname)}`)
 });
 
+// File filter function
 const fileFilter = (req, file, cb) => {
-    const allowedFileTypes = /jpeg|jpg|png|gif/;
-    const extname = allowedFileTypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = allowedFileTypes.test(file.mimetype);
+    const extname = ALLOWED_FILE_TYPES.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = ALLOWED_FILE_TYPES.test(file.mimetype);
 
-    if (extname && mimetype) {
-        cb(null, true);
-    } else {
-        cb(new Error('Only image files are allowed!'), false);
-    }
+    return extname && mimetype ? cb(null, true) : cb(new Error('Only image files (JPEG, PNG, GIF) are allowed!'), false);
 };
 
+// Multer instance
 const upload = multer({
-    storage: storage,
-    limits: {
-        fileSize: 1024 * 1024 * 5 // 5MB
-    },
-    fileFilter: fileFilter
-});
+    storage,
+    limits: { fileSize: MAX_FILE_SIZE },
+    fileFilter
+}).single('profilePicture'); // Change field name as needed
 
-module.exports = upload; 
+export default upload;
